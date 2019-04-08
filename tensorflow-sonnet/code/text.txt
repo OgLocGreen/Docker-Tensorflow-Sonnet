@@ -1,0 +1,9 @@
+Hallo Zusammen,
+
+Ich mache Momentan das Informatiklabor aus dem 7 Semester. Hierbei arbeite ich mit dem ESP32 und einem Websoket bzw. mit mehreren Websokets. Herr Walter hat vorgeschlagen ein gemeinsames Treffen mit allen Studenten, die sich mit ähnlichen Themen beschäftigen, zu veranstalten. Hierzu hat er mich gebeten eine Mail mit einer Doodle Umfrage zu starten, in welchem der Termin entschieden werden soll.
+
+https://doodle.com/poll/5qbecnxavutiyxwz
+
+Ich denke das Treffen wird zwischen 45min – 1h dauern. Kann sich je nach Themen, die zu besprechen sind natürlich ändern.
+
+Gruß Christian Heinzmann

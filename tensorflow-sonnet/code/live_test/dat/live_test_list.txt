@@ -1,0 +1,16 @@
+./rgbFrames/frame_000001.jpg ./flowFrames/{:s}_0001.jpg
+./rgbFrames/frame_000002.jpg ./flowFrames/{:s}_0002.jpg
+./rgbFrames/frame_000003.jpg ./flowFrames/{:s}_0003.jpg
+./rgbFrames/frame_000004.jpg ./flowFrames/{:s}_0004.jpg
+./rgbFrames/frame_000005.jpg ./flowFrames/{:s}_0005.jpg
+./rgbFrames/frame_000006.jpg ./flowFrames/{:s}_0006.jpg
+./rgbFrames/frame_000007.jpg ./flowFrames/{:s}_0007.jpg
+./rgbFrames/frame_000008.jpg ./flowFrames/{:s}_0008.jpg
+./rgbFrames/frame_000009.jpg ./flowFrames/{:s}_0009.jpg
+./rgbFrames/frame_000010.jpg ./flowFrames/{:s}_0010.jpg
+./rgbFrames/frame_000011.jpg ./flowFrames/{:s}_0011.jpg
+./rgbFrames/frame_000012.jpg ./flowFrames/{:s}_0012.jpg
+./rgbFrames/frame_000013.jpg ./flowFrames/{:s}_0013.jpg
+./rgbFrames/frame_000014.jpg ./flowFrames/{:s}_0014.jpg
+./rgbFrames/frame_000015.jpg ./flowFrames/{:s}_0015.jpg
+./rgbFrames/frame_000016.jpg ./flowFrames/{:s}_0016.jpg

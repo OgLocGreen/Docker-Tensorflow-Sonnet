@@ -1,0 +1,7 @@
+FROM tensorflow/tensorflow:latest-gpu-py3
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+ENTRYPOINT ### zu erst wird dieses aufgeführt für init oder config
+CMD ### dannach wird command ausgeführt
+

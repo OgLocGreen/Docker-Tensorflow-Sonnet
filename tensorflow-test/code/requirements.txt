@@ -1,0 +1,10 @@
+numpy == 1.16.2
+tensorflow-gpu
+opencv-python
+tensorflow-probability-gpu
+pillow
+lxml
+jupyter
+matplotlib
+Cython
+contextlib2

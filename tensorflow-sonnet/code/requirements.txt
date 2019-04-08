@@ -1,0 +1,5 @@
+#für Sonnet install 
+collections-extended
+imageio
+numpy
+dm-sonnet
