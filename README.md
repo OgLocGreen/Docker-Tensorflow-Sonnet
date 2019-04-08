@@ -36,7 +36,7 @@ Im Dockerfile werden dann die Befehle eingetragen welche beim Builden umgesetzt 
 * Auswahl des Codes welcher von der host maschine Koppiert werden sollen
 * unzippen und befehler die während dem bauen installiert werden sollen
 
-Images können unter [Dockerhub](https://hub.docker.com/) ausgesucht werden. Diese werden  werden
+Images können unter [Dockerhub](https://hub.docker.com/) ausgesucht werden. Diese werden dann automatisch zu beginn heruntergeladen und dienen als Basis.
 
 
 ### Using
@@ -53,6 +53,7 @@ Sudo docker-compose up
 ```
 
 Sein Container starten. Dann luft das im docker-compose ausgewählte Command solange bis es fertig ausgeführt ist.
-Wenn das POrgramm dauerhaft laufen soll muss sich es in einer While(true) Schleifen-rotine laufen.
+
+Wenn das Programm dauerhaft laufen soll muss sich es in einer While(true) Schleifen-routine laufen.
 
 
