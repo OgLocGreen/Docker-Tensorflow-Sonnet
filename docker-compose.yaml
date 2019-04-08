@@ -1,48 +1,45 @@
 version: "3"
 services:
-  #tensorflow-test-obere:
- #   image: tensorflow-test-untere
- #   build: ./tensorflow-test
- #   #command: python objectdetection.py           ### Startbefehl der ausgeführt wird nach dem Start
- #   command: bash
- #   privileged: true        ###zugriff auf Hardware
+ #tensorflow-test-obere:       
+ #   image: tensorflow-test-untere                 # name des neuen Images
+ #   build: ./tensorflow-sonnet                    # pfad zum Dockerfile
+ #   command: python objectdetection.py            # Startbefehl der ausgeführt wird nach dem Start                     
+ #   privileged: true                              # zugriff auf Hardware
  #   stdin_open: true
  #   tty: true
-  #  environment:              ###übergabe von Var für Display und Xsock
+ #   environment:                                  # übergabe von Variablen zum Beispiel für Display und Xsock
  #     - DISPLAY=$DISPLAY       
-  #    - SSH_AUTH_SOCK=/tmp/ssh_auth_sock
-   #   - XSOCK=/tmp/.X11-unix
-  #    - XAUTH=/tmp/.docker.xauth
-   #   - QT_X11_NO_MITSHM=1
-  #  volumes:                  ###  Mounten von Ordnern in den Dockercontainer
-   #   - /home/green/Desktop/Tausch/:/usr/src/app/Tausch/ ## mount nur wenn nicht copiert
-   #   - /tmp/.X11-unix/:/tmp/.X11-unix/
-   # devices:
-   #   - /dev/video0:/dev/video0       ### Übergeben von Webcam
-#####mehre Befehle ausführen
-#  nvidia-smi-test:                      ### Image beendet sich automatisch wenn der befehl durchgelafufen
+ #     - SSH_AUTH_SOCK=/tmp/ssh_auth_sock
+ #     - XSOCK=/tmp/.X11-unix
+ #     - XAUTH=/tmp/.docker.xauth
+ #     - QT_X11_NO_MITSHM=1
+ #  volumes:                                      #  Mounten von Ordnern in den Dockercontainer
+ #     - /home/green/Desktop/Tausch/:/usr/src/app/Tausch/ # einfacher Tauschordner um eine schnittstelle zwischen Hostmaschine und Container zu haben
+ #     - /tmp/.X11-unix/:/tmp/.X11-unix/
+ #   devices:
+ #     - /dev/video0:/dev/video0                   # Übergeben von Webcam
+#  nvidia-smi-test:                     
 #    image: nvidia-smi-test
-#    build: ./nvidia-test
-#    command: nvidia-smi
-#     command: >
+#    build: ./nvidia-test          
+#    command: >                                   # mehre Befehle ausführen
 #              bash -c "nvidia-smi
 #              && cat /Tausch/helloworld.txt"
   tensorflow-sonnet:
-    image: tensorflow-test-untere
-    build: ./tensorflow-sonnet
-    #command: python objectdetection.py           ### Startbefehl der ausgeführt wird nach dem Start
-    command: bash
-    privileged: true        ###zugriff auf Hardware
+    image: tensorflow-test-untere                 # name des neuen Images
+    build: ./tensorflow-sonnet                    # pfad zum Dockerfile
+    #command: python objectdetection.py           # Startbefehl der ausgeführt wird nach dem Start
+    command: bash                                   
+    privileged: true                              # zugriff auf Hardware
     stdin_open: true
     tty: true
-    environment:              ###übergabe von Var für Display und Xsock
+    environment:                                  # übergabe von Variablen zum Beispiel für Display und Xsock
       - DISPLAY=$DISPLAY       
       - SSH_AUTH_SOCK=/tmp/ssh_auth_sock
       - XSOCK=/tmp/.X11-unix
       - XAUTH=/tmp/.docker.xauth
       - QT_X11_NO_MITSHM=1
-    volumes:                  ###  Mounten von Ordnern in den Dockercontainer
-      - /home/green/Desktop/Tausch/:/usr/src/app/Tausch/ ## mount nur wenn nicht copiert
+    volumes:                                      #  Mounten von Ordnern in den Dockercontainer
+      - /home/green/Desktop/Tausch/:/usr/src/app/Tausch/ # einfacher Tauschordner um eine schnittstelle zwischen Hostmaschine und Container zu haben
       - /tmp/.X11-unix/:/tmp/.X11-unix/
     devices:
-      - /dev/video0:/dev/video0       ### Übergeben von Webcam
+      - /dev/video0:/dev/video0                   # Übergeben von Webcam

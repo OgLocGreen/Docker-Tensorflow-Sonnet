@@ -20,8 +20,27 @@ Um die genangen Images/Container bauen und ausführen zukönnen müssen Folgende
 ### Installing
 Anschließend kann man sich das Reposetrie clonen.
 
+### Configuration
+Im Docker-compose.yaml werden die Startbedingungen festgelegt.
+* welches Iamge als Grundlage dieht
+* start Command
+* Variablen die Übernommen werden
+* mounten von Ordnern
+* übergabe von Geräten Bsp. Webcam
+* weite Einstellungen
+
+Im Dockerfile werden dann die Befehle eingetragen welche beim Builden umgesetzt werden. 
+* Auswahl des Images
+* Auswahl der installationen 
+* Clonen von Github repos
+* Auswahl des Codes welcher von der host maschine Koppiert werden sollen
+* unzippen und befehler die während dem bauen installiert werden sollen
+
+Images können unter [Dockerhub](https://hub.docker.com/) ausgesucht werden. Diese werden  werden
+
+
 ### Using
-Und mit folgendem Befehl sich sein Docker-image bauen:
+Und mit folgendem Befehl sich sein Docker-image bauen::
 
 ```
 Sudo docker-compose build

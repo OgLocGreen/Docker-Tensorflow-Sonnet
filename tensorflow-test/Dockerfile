@@ -1,11 +1,15 @@
+#Auswahl des Images 
 FROM tensorflow/tensorflow:latest-gpu-py3
 
+# Kopieren von Ordner
 COPY ./code/ /usr/src/app
 
+#Workdir an diesen Pfad
 WORKDIR /usr/src/app/
 
 #installieren von updates
 RUN apt-get update && apt-get install -y
+#installieren von software
 RUN apt-get install wget git-all protobuf-compiler python3-pil python3-lxml python3-tk vim -y
 
 #installieren von requirements for python
@@ -20,4 +24,5 @@ RUN ./bin/protoc object_detection/protos/*.proto --python_out=.
 RUN export PYTHONPATH=$PYTHONPATH:/usr/src/app/models/research:/usr/src/app/models/research/slim
 WORKDIR /usr/src/app/models/research/object_detection/
 
+#Copieren von Webcam + Objekterkennungs test
 COPY ./webcamObjektdetection.py /usr/src/app/models/research/object_detection/webcamObjektdetection.py
