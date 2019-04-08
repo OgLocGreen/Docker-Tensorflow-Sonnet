@@ -10,7 +10,8 @@ Es werden Beispieldateien für ein Docker-compose gegeben mit wechelen man sich 
 
 
 ### Prerequisites
-Mann muss Docker und Docker-Compose installieren.
+Man muss als erstes Docker und Docker-Compose installieren.
+Wenn Tensorflow mit GPU unterstützung verweden werden soll, müssen auch die entsprechenden Treiber für die Grafikkarte installiert werden.
 
 ### Installing
 Anschließend kann man sich das Reposetrie clonen.
