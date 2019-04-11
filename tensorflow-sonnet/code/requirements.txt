@@ -1,4 +1,5 @@
 #für Sonnet install 
+tensorflow-probability-gpu
 collections-extended
 imageio
 numpy

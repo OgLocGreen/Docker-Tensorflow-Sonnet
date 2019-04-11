@@ -25,7 +25,7 @@ services:
 #              bash -c "nvidia-smi
 #              && cat /Tausch/helloworld.txt"
   tensorflow-sonnet:
-    image: tensorflow-test-untere                 # name des neuen Images
+    image: tensorflow:sonnet                # name des neuen Images
     build: ./tensorflow-sonnet                    # pfad zum Dockerfile
     #command: python objectdetection.py           # Startbefehl der ausgeführt wird nach dem Start
     command: bash                                   
