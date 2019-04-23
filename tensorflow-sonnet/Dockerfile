@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu
+FROM tensorflow/tensorflow:latest-gpu-py3
 
 COPY ./code/ /usr/src/app
 
@@ -11,19 +11,28 @@ RUN apt-get install wget git-all cmake vim -y
 
 #required installs for Opencv
 RUN apt-get install build-essential libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev -y
+RUN apt-get install libblkid-dev e2fslibs-dev libboost-all-dev libaudit-dev -y
+RUN apt-get update && apt-get install -y
 
 #install opencv from source
 RUN mkdir opencv
 WORKDIR /usr/src/app/opencv/
 RUN git clone https://github.com/opencv/opencv.git
+WORKDIR /usr/src/app/opencv/opencv/
+RUN git checkout 3.4
+WORKDIR /usr/src/app/opencv/
 RUN git clone https://github.com/opencv/opencv_contrib.git
+WORKDIR /usr/src/app/opencv/opencv_contrib/
+RUN git checkout 3.4
 WORKDIR /usr/src/app/opencv/opencv/
 RUN mkdir build
 WORKDIR /usr/src/app/opencv/opencv/build/
-RUN cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
-#getestet bis hier hin
+RUN cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/src/app/opencv/opencv/ -D INSTALL_PYTHON_EXAMPLES=OFF -D INSTALL_C_EXAMPLES=OFF -DOPENCV_EXTRA_MODULES_PATH=/usr/src/app/opencv/opencv_contrib/modules -D PYTHON3_EXECUTABLE=/usr/bin/python3.5m -D PYTHON3_LIBRARY=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu/libpython3.5m.so -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON3_INCLUDE_DIR2=/usr/include/x86_64-linux-gnu/python3.4m -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.5/dist-packages/numpy/core/include/ -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.5/dist-packages/ -D WITH_V4L=OFF -D WITH_LIBV4L=ON -D BUILD_EXAMPLES=OFF -D ENABLE_PRECOMPILED_HEADERS=OFF -D CUDA_NVCC_FLAGS=--expt-relaxed-constexpr ..
 RUN make -j4
-RUN make install                
+RUN make install
+
+WORKDIR /usr/src/app/opencv/opencv/build/lib/python3/
+RUN mv cv2.cpython-35m-x86_64-linux-gnu.so cv2.so
 
 #required installs for Opencv
 RUN apt-get install libzip-dev -y
@@ -33,9 +42,12 @@ WORKDIR /usr/src/app/
 RUN mkdir denseflow
 WORKDIR /usr/src/app/denseflow/
 RUN git clone --recursive http://github.com/yjxiong/dense_flow
-#RUN mkdir build
-#WORKDIR /usr/src/app/denseflow/build/
-#RUN cmake .. && make -j
+WORKDIR /usr/src/app/denseflow/dense_flow/
+RUN git checkout opencv-3.1
+RUN mkdir build
+WORKDIR /usr/src/app/denseflow/dense_flow/build/
+RUN cmake -DOpenCV_DIR=/usr/src/app/opencv/opencv/build .. && make -j
+
 
 #installieren von requirements for python
 WORKDIR /usr/src/app/
