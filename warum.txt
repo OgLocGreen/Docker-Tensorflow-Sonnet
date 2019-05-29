@@ -1,0 +1,754 @@
+green@lenovo:~/Desktop/Deep/docker-demonstrator$ sudo docker exec -it docker-demonstrator_tensorflow-sonnet_1 bash
+[sudo] password for green: 
+
+________                               _______________                
+___  __/__________________________________  ____/__  /________      __
+__  /  _  _ \_  __ \_  ___/  __ \_  ___/_  /_   __  /_  __ \_ | /| / /
+_  /   /  __/  / / /(__  )/ /_/ /  /   _  __/   _  / / /_/ /_ |/ |/ / 
+/_/    \___//_/ /_//____/ \____//_/    /_/      /_/  \____/____/|__/
+
+
+WARNING: You are running this container as root, which can cause new files in
+mounted volumes to be created as the root user on your host machine.
+
+To avoid this, run the container by specifying your user's userid:
+
+$ docker run -u $(id -u):$(id -g) args...
+
+root@d2ebdce709d9:/usr/src/app# ll
+total 36
+drwxr-xr-x 1 root root 4096 May 23 13:39 ./
+drwxr-xr-x 1 root root 4096 May 22 14:50 ../
+drwxrwxr-x 2 1000 1000 4096 Mar 25 14:52 Tausch/
+drwxr-xr-x 1 root root 4096 May 23 13:38 denseflow/
+drwxrwxr-x 4 root root 4096 Apr  2 09:13 live_test/
+drwxr-xr-x 1 root root 4096 May 23 13:24 opencv/
+-rw-rw-r-- 1 root root  101 May 22 14:50 requirements.txt
+-rw-r--r-- 1 root root  441 Mar  6 10:49 test-sonnet.py
+root@d2ebdce709d9:/usr/src/app# cd opencv/
+root@d2ebdce709d9:/usr/src/app/opencv# ll
+total 16
+drwxr-xr-x 1 root root 4096 May 23 13:24 ./
+drwxr-xr-x 1 root root 4096 May 23 13:39 ../
+drwxr-xr-x 1 root root 4096 May 23 13:38 opencv/
+drwxr-xr-x 1 root root 4096 May 23 13:28 opencv_contrib/
+root@d2ebdce709d9:/usr/src/app/opencv# cd opencv
+root@d2ebdce709d9:/usr/src/app/opencv/opencv# ll
+total 168
+drwxr-xr-x 1 root root  4096 May 23 13:38 ./
+drwxr-xr-x 1 root root  4096 May 23 13:24 ../
+drwxr-xr-x 3 root root  4096 May 23 13:28 .cache/
+-rw-r--r-- 1 root root   455 May 23 12:14 .editorconfig
+drwxr-xr-x 1 root root  4096 May 23 13:28 .git/
+-rw-r--r-- 1 root root  2296 May 23 12:14 .gitattributes
+drwxr-xr-x 1 root root  4096 May 23 13:24 .github/
+-rw-r--r-- 1 root root   186 May 23 12:14 .gitignore
+drwxr-xr-x 1 root root  4096 May 23 12:14 3rdparty/
+-rw-r--r-- 1 root root 70260 May 23 13:24 CMakeLists.txt
+-rw-r--r-- 1 root root   191 May 23 12:14 CONTRIBUTING.md
+-rw-r--r-- 1 root root  2234 May 23 12:14 LICENSE
+-rw-r--r-- 1 root root   664 May 23 13:24 README.md
+drwxr-xr-x 1 root root  4096 May 23 13:24 apps/
+drwxr-xr-x 2 root root  4096 May 23 13:38 bin/
+drwxr-xr-x 1 root root  4096 May 23 13:38 build/
+drwxr-xr-x 1 root root  4096 May 23 13:24 cmake/
+drwxr-xr-x 7 root root  4096 May 23 12:14 data/
+drwxr-xr-x 1 root root  4096 May 23 13:24 doc/
+drwxr-xr-x 1 root root  4096 May 23 13:24 include/
+drwxr-xr-x 4 root root  4096 May 23 13:38 lib/
+drwxr-xr-x 1 root root  4096 May 23 13:24 modules/
+drwxr-xr-x 1 root root  4096 May 23 12:14 platforms/
+drwxr-xr-x 1 root root  4096 May 23 13:24 samples/
+drwxr-xr-x 4 root root  4096 May 23 13:38 share/
+root@d2ebdce709d9:/usr/src/app/opencv/opencv# cd include/
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/include# ll
+total 20
+drwxr-xr-x 1 root root 4096 May 23 13:24 ./
+drwxr-xr-x 1 root root 4096 May 23 13:38 ../
+-rw-r--r-- 1 root root  242 May 23 13:24 CMakeLists.txt
+drwxr-xr-x 2 root root 4096 May 23 13:24 opencv/
+drwxr-xr-x 1 root root 4096 May 23 13:38 opencv2/
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/include# cd opencv2/
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/include/opencv2# ll
+total 1056
+drwxr-xr-x 1 root root   4096 May 23 13:38 ./
+drwxr-xr-x 1 root root   4096 May 23 13:24 ../
+drwxr-xr-x 2 root root   4096 May 23 13:38 calib3d/
+-rw-r--r-- 1 root root 159977 May 23 13:24 calib3d.hpp
+drwxr-xr-x 6 root root   4096 May 23 13:38 core/
+-rw-r--r-- 1 root root 150861 May 23 13:24 core.hpp
+-rw-r--r-- 1 root root   5212 May 23 13:28 cvconfig.h
+drwxr-xr-x 3 root root   4096 May 23 13:38 dnn/
+-rw-r--r-- 1 root root   3347 May 23 12:14 dnn.hpp
+drwxr-xr-x 3 root root   4096 May 23 13:38 features2d/
+-rw-r--r-- 1 root root  64287 May 23 13:24 features2d.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 flann/
+-rw-r--r-- 1 root root  26596 May 23 12:14 flann.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 highgui/
+-rw-r--r-- 1 root root  36354 May 23 13:24 highgui.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 imgcodecs/
+-rw-r--r-- 1 root root  15748 May 23 13:24 imgcodecs.hpp
+drwxr-xr-x 4 root root   4096 May 23 13:38 imgproc/
+-rw-r--r-- 1 root root 238163 May 23 13:24 imgproc.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 ml/
+-rw-r--r-- 1 root root  93422 May 23 13:24 ml.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 objdetect/
+-rw-r--r-- 1 root root  37280 May 23 13:24 objdetect.hpp
+-rw-r--r-- 1 root root   4503 May 23 12:14 opencv.hpp
+-rw-r--r-- 1 root root    812 May 23 13:28 opencv_modules.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 photo/
+-rw-r--r-- 1 root root  37970 May 23 13:24 photo.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 shape/
+-rw-r--r-- 1 root root   2461 May 23 13:24 shape.hpp
+drwxr-xr-x 3 root root   4096 May 23 13:38 stitching/
+-rw-r--r-- 1 root root  13369 May 23 13:24 stitching.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 superres/
+-rw-r--r-- 1 root root   8287 May 23 13:24 superres.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 video/
+-rw-r--r-- 1 root root   2630 May 23 13:24 video.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 videoio/
+-rw-r--r-- 1 root root  55398 May 23 13:24 videoio.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 videostab/
+-rw-r--r-- 1 root root   3674 May 23 13:24 videostab.hpp
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/include/opencv2# python 
+Python 3.5.2 (default, Nov 12 2018, 13:43:14) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import cv2
+c>>> cv2.video
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'cv2' has no attribute 'video'
+>>> cv2.video
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'cv2' has no attribute 'video'
+>>> cv2.xfeature
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'cv2' has no attribute 'xfeature'
+>>> cd ..
+  File "<stdin>", line 1
+    cd ..
+        ^
+SyntaxError: invalid syntax
+>>> exit()
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/include/opencv2# ll
+total 1056
+drwxr-xr-x 1 root root   4096 May 23 13:38 ./
+drwxr-xr-x 1 root root   4096 May 23 13:24 ../
+drwxr-xr-x 2 root root   4096 May 23 13:38 calib3d/
+-rw-r--r-- 1 root root 159977 May 23 13:24 calib3d.hpp
+drwxr-xr-x 6 root root   4096 May 23 13:38 core/
+-rw-r--r-- 1 root root 150861 May 23 13:24 core.hpp
+-rw-r--r-- 1 root root   5212 May 23 13:28 cvconfig.h
+drwxr-xr-x 3 root root   4096 May 23 13:38 dnn/
+-rw-r--r-- 1 root root   3347 May 23 12:14 dnn.hpp
+drwxr-xr-x 3 root root   4096 May 23 13:38 features2d/
+-rw-r--r-- 1 root root  64287 May 23 13:24 features2d.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 flann/
+-rw-r--r-- 1 root root  26596 May 23 12:14 flann.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 highgui/
+-rw-r--r-- 1 root root  36354 May 23 13:24 highgui.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 imgcodecs/
+-rw-r--r-- 1 root root  15748 May 23 13:24 imgcodecs.hpp
+drwxr-xr-x 4 root root   4096 May 23 13:38 imgproc/
+-rw-r--r-- 1 root root 238163 May 23 13:24 imgproc.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 ml/
+-rw-r--r-- 1 root root  93422 May 23 13:24 ml.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 objdetect/
+-rw-r--r-- 1 root root  37280 May 23 13:24 objdetect.hpp
+-rw-r--r-- 1 root root   4503 May 23 12:14 opencv.hpp
+-rw-r--r-- 1 root root    812 May 23 13:28 opencv_modules.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 photo/
+-rw-r--r-- 1 root root  37970 May 23 13:24 photo.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 shape/
+-rw-r--r-- 1 root root   2461 May 23 13:24 shape.hpp
+drwxr-xr-x 3 root root   4096 May 23 13:38 stitching/
+-rw-r--r-- 1 root root  13369 May 23 13:24 stitching.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 superres/
+-rw-r--r-- 1 root root   8287 May 23 13:24 superres.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 video/
+-rw-r--r-- 1 root root   2630 May 23 13:24 video.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 videoio/
+-rw-r--r-- 1 root root  55398 May 23 13:24 videoio.hpp
+drwxr-xr-x 2 root root   4096 May 23 13:38 videostab/
+-rw-r--r-- 1 root root   3674 May 23 13:24 videostab.hpp
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/include/opencv2# cd ..
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/include# cd ..
+root@d2ebdce709d9:/usr/src/app/opencv/opencv# ll
+total 168
+drwxr-xr-x 1 root root  4096 May 23 13:38 ./
+drwxr-xr-x 1 root root  4096 May 23 13:24 ../
+drwxr-xr-x 3 root root  4096 May 23 13:28 .cache/
+-rw-r--r-- 1 root root   455 May 23 12:14 .editorconfig
+drwxr-xr-x 1 root root  4096 May 23 13:28 .git/
+-rw-r--r-- 1 root root  2296 May 23 12:14 .gitattributes
+drwxr-xr-x 1 root root  4096 May 23 13:24 .github/
+-rw-r--r-- 1 root root   186 May 23 12:14 .gitignore
+drwxr-xr-x 1 root root  4096 May 23 12:14 3rdparty/
+-rw-r--r-- 1 root root 70260 May 23 13:24 CMakeLists.txt
+-rw-r--r-- 1 root root   191 May 23 12:14 CONTRIBUTING.md
+-rw-r--r-- 1 root root  2234 May 23 12:14 LICENSE
+-rw-r--r-- 1 root root   664 May 23 13:24 README.md
+drwxr-xr-x 1 root root  4096 May 23 13:24 apps/
+drwxr-xr-x 2 root root  4096 May 23 13:38 bin/
+drwxr-xr-x 1 root root  4096 May 23 13:38 build/
+drwxr-xr-x 1 root root  4096 May 23 13:24 cmake/
+drwxr-xr-x 7 root root  4096 May 23 12:14 data/
+drwxr-xr-x 1 root root  4096 May 23 13:24 doc/
+drwxr-xr-x 1 root root  4096 May 23 13:24 include/
+drwxr-xr-x 4 root root  4096 May 23 13:38 lib/
+drwxr-xr-x 1 root root  4096 May 23 13:24 modules/
+drwxr-xr-x 1 root root  4096 May 23 12:14 platforms/
+drwxr-xr-x 1 root root  4096 May 23 13:24 samples/
+drwxr-xr-x 4 root root  4096 May 23 13:38 share/
+root@d2ebdce709d9:/usr/src/app/opencv/opencv# cd build/
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/build# ll
+total 780
+drwxr-xr-x 1 root root   4096 May 23 13:38 ./
+drwxr-xr-x 1 root root   4096 May 23 13:38 ../
+drwxr-xr-x 1 root root   4096 May 23 13:28 3rdparty/
+-rw-r--r-- 1 root root 222395 May 23 13:28 CMakeCache.txt
+-rw-r--r-- 1 root root   1002 May 23 13:28 CMakeDownloadLog.txt
+drwxr-xr-x 1 root root   4096 May 23 13:38 CMakeFiles/
+-rw-r--r-- 1 root root 283014 May 23 13:28 CMakeVars.txt
+-rw-r--r-- 1 root root   9567 May 23 13:28 CPackConfig.cmake
+-rw-r--r-- 1 root root   9915 May 23 13:28 CPackSourceConfig.cmake
+-rw-r--r-- 1 root root    546 May 23 13:28 CTestTestfile.cmake
+-rw-r--r-- 1 root root  42328 May 23 13:28 Makefile
+-rw-r--r-- 1 root root    418 May 23 13:28 OpenCVConfig-version.cmake
+-rw-r--r-- 1 root root  14360 May 23 13:28 OpenCVConfig.cmake
+-rw-r--r-- 1 root root   2459 May 23 13:28 OpenCVGenPkgConfig.info.cmake
+-rw-r--r-- 1 root root  11093 May 23 13:28 OpenCVModules.cmake
+drwxr-xr-x 1 root root   4096 May 23 13:28 apps/
+drwxr-xr-x 1 root root   4096 May 23 13:37 bin/
+-rw-r--r-- 1 root root   7198 May 23 13:28 cmake_install.cmake
+-rw-r--r-- 1 root root   1150 May 23 13:28 cmake_uninstall.cmake
+drwxr-xr-x 3 root root   4096 May 23 13:28 configured/
+-rw-r--r-- 1 root root     70 May 23 13:28 custom_hal.hpp
+-rw-r--r-- 1 root root    796 May 23 13:28 cv_cpu_config.h
+-rw-r--r-- 1 root root   5212 May 23 13:28 cvconfig.h
+drwxr-xr-x 3 root root   4096 May 23 13:28 data/
+drwxr-xr-x 3 root root   4096 May 23 13:28 doc/
+drwxr-xr-x 3 root root   4096 May 23 13:28 include/
+-rw-r--r-- 1 root root  39835 May 23 13:38 install_manifest.txt
+drwxr-xr-x 1 root root   4096 May 23 13:38 lib/
+drwxr-xr-x 1 root root   4096 May 23 13:28 modules/
+drwxr-xr-x 2 root root   4096 May 23 13:28 opencv2/
+-rw-r--r-- 1 root root    287 May 23 13:28 opencv_data_config.hpp
+-rw-r--r-- 1 root root   2380 May 23 13:28 opencv_python_config.cmake
+-rw-r--r-- 1 root root    340 May 23 13:28 opencv_python_tests.cfg
+-rw-r--r-- 1 root root    123 May 23 13:28 opencv_tests_config.hpp
+drwxr-xr-x 3 root root   4096 May 23 13:28 python_loader/
+drwxr-xr-x 9 root root   4096 May 23 13:28 samples/
+-rwxr-xr-x 1 root root    654 May 23 13:28 setup_vars.sh*
+drwxr-xr-x 5 root root   4096 May 23 13:28 test-reports/
+drwxr-xr-x 2 root root   4096 May 23 13:28 tmp/
+drwxr-xr-x 1 root root   4096 May 23 13:28 unix-install/
+-rw-r--r-- 1 root root   8049 May 23 13:28 version_string.tmp
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/build# cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/src/app/opencv/opencv/ -D INSTALL_PYTHON_EXAMPLES=OFF -D INSTALL_C_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=/usr/src/app/opencv/opencv_contrib/modules -D PYTHON3_EXECUTABLE=/usr/bin/python3.5m -D PYTHON3_LIBRARY=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu/libpython3.5m.so -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON3_INCLUDE_DIR2=/usr/include/x86_64-linux-gnu/python3.4m -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.5/dist-packages/numpy/core/include/ -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.5/dist-packages/ -D BUILD_EXAMPLES=OFF -D ENABLE_PRECOMPILED_HEADERS=OFF -D CUDA_NVCC_FLAGS=--expt-relaxed-constexpr ..
+-- Looking for ccache - not found
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found suitable version "1.2.8", minimum required is "1.2.3") 
+-- Could NOT find Jasper (missing:  JASPER_LIBRARIES JASPER_INCLUDE_DIR) 
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.8") 
+-- Looking for linux/videodev.h
+-- Looking for linux/videodev.h - not found
+-- Looking for linux/videodev2.h
+-- Looking for linux/videodev2.h - found
+-- Looking for sys/videoio.h
+-- Looking for sys/videoio.h - not found
+-- found Intel IPP (ICV version): 2019.0.0 [2019.0.0 Gold]
+-- at: /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+-- found Intel IPP Integration Wrappers sources: 2019.0.0
+-- at: /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+-- Could not find OpenBLAS lib. Turning OpenBLAS_FOUND off
+-- Could NOT find Atlas (missing:  Atlas_CLAPACK_INCLUDE_DIR) 
+-- A library with BLAS API found.
+-- A library with LAPACK API found.
+-- Could NOT find JNI (missing:  JAVA_AWT_LIBRARY JAVA_JVM_LIBRARY JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JAVA_AWT_INCLUDE_PATH) 
+-- VTK is not found. Please set -DVTK_DIR in CMake to VTK build directory, or to VTK install subdirectory with VTKConfig.cmake file
+-- OpenCV Python: during development append to PYTHONPATH: /usr/src/app/opencv/opencv/build/python_loader
+CMake Warning at cmake/OpenCVGenSetupVars.cmake:54 (message):
+  CONFIGURATION IS NOT SUPPORTED: validate setupvars script in install
+  directory
+Call Stack (most recent call first):
+  CMakeLists.txt:1085 (include)
+
+
+-- 
+-- General configuration for OpenCV 3.4.6-dev =====================================
+--   Version control:               3.4.6-164-gdef8fa2
+-- 
+--   Platform:
+--     Timestamp:                   2019-05-23T13:28:43Z
+--     Host:                        Linux 4.15.0-50-generic x86_64
+--     CMake:                       3.5.1
+--     CMake generator:             Unix Makefiles
+--     CMake build tool:            /usr/bin/make
+--     Configuration:               RELEASE
+-- 
+--   CPU/HW features:
+--     Baseline:                    SSE SSE2 SSE3
+--       requested:                 SSE3
+--     Dispatched code generation:  SSE4_1 SSE4_2 FP16 AVX AVX2 AVX512_SKX
+--       requested:                 SSE4_1 SSE4_2 AVX FP16 AVX2 AVX512_SKX
+--       SSE4_1 (14 files):         + SSSE3 SSE4_1
+--       SSE4_2 (2 files):          + SSSE3 SSE4_1 POPCNT SSE4_2
+--       FP16 (1 files):            + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 AVX
+--       AVX (6 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
+--       AVX2 (28 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
+--       AVX512_SKX (2 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_COMMON AVX512_SKX
+-- 
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++ Compiler:                /usr/bin/c++  (ver 5.4.0)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  /usr/bin/cc
+--     C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      -Wl,--gc-sections  
+--     Linker flags (Debug):        -Wl,--gc-sections  
+--     ccache:                      NO
+--     Precompiled headers:         NO
+--     Extra dependencies:          dl m pthread rt
+--     3rdparty dependencies:
+-- 
+--   OpenCV modules:
+--     To be built:                 calib3d core dnn features2d flann highgui imgcodecs imgproc ml objdetect photo python2 python3 shape stitching superres ts video videoio videostab
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev java js viz
+--     Applications:                tests perf_tests apps
+--     Documentation:               NO
+--     Non-free algorithms:         NO
+-- 
+--   GUI: 
+--     GTK+:                        YES (ver 3.18.9)
+--       GThread :                  YES (ver 2.48.2)
+--       GtkGlExt:                  NO
+--     VTK support:                 NO
+-- 
+--   Media I/O: 
+--     ZLib:                        /usr/lib/x86_64-linux-gnu/libz.so (ver 1.2.8)
+--     JPEG:                        /usr/lib/x86_64-linux-gnu/libjpeg.so (ver 80)
+--     WEBP:                        build (ver encoder: 0x020e)
+--     PNG:                         /usr/lib/x86_64-linux-gnu/libpng.so (ver 1.2.54)
+--     TIFF:                        /usr/lib/x86_64-linux-gnu/libtiff.so (ver 42 / 4.0.6)
+--     JPEG 2000:                   build (ver 1.900.1)
+--     OpenEXR:                     build (ver 1.7.1)
+--     HDR:                         YES
+--     SUNRASTER:                   YES
+--     PXM:                         YES
+-- 
+--   Video I/O:
+--     DC1394:                      YES (ver 2.2.4)
+--     FFMPEG:                      YES
+--       avcodec:                   YES (ver 56.60.100)
+--       avformat:                  YES (ver 56.40.101)
+--       avutil:                    YES (ver 54.31.100)
+--       swscale:                   YES (ver 3.1.101)
+--       avresample:                YES (ver 2.1.0)
+--     GStreamer:                   YES
+--       base:                      YES (ver 1.8.3)
+--       video:                     YES (ver 1.8.3)
+--       app:                       YES (ver 1.8.3)
+--       riff:                      YES (ver 1.8.3)
+--       pbutils:                   YES (ver 1.8.3)
+--     libv4l/libv4l2:              NO
+--     v4l/v4l2:                    linux/videodev2.h
+-- 
+--   Parallel framework:            pthreads
+-- 
+--   Trace:                         YES (with Intel ITT)
+-- 
+--   Other third-party libraries:
+--     Intel IPP:                   2019.0.0 Gold [2019.0.0]
+--            at:                   /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+--     Intel IPP IW:                sources (2019.0.0)
+--               at:                /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+--     Lapack:                      NO
+--     Eigen:                       NO
+--     Custom HAL:                  NO
+--     Protobuf:                    build (3.5.1)
+-- 
+--   OpenCL:                        YES (no extra features)
+--     Include path:                /usr/src/app/opencv/opencv/3rdparty/include/opencl/1.2
+--     Link libraries:              Dynamic load
+-- 
+--   Python 2:
+--     Interpreter:                 /usr/bin/python2.7 (ver 2.7.12)
+--     Libraries:                   /usr/lib/x86_64-linux-gnu/libpython2.7.so (ver 2.7.12)
+--     numpy:                       /usr/local/lib/python2.7/dist-packages/numpy/core/include (ver 1.16.3)
+--     install path:                lib/python2.7/dist-packages/cv2/python-2.7
+-- 
+--   Python 3:
+--     Interpreter:                 /usr/bin/python3.5m (ver 3.5.2)
+--     Libraries:                   /usr/lib/python3.5/config-3.5m-x86_64-linux-gnu/libpython3.5m.so -D (ver 3.5.2)
+--     numpy:                       /usr/local/lib/python3.5/dist-packages/numpy/core/include (ver 1.16.2)
+--     install path:                /usr/local/lib/python3.5/dist-packages//cv2/python-3.5
+-- 
+--   Python (for build):            /usr/bin/python2.7
+-- 
+--   Java:                          
+--     ant:                         NO
+--     JNI:                         NO
+--     Java wrappers:               NO
+--     Java tests:                  NO
+-- 
+--   Install to:                    /usr/src/app/opencv/opencv
+-- -----------------------------------------------------------------
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/src/app/opencv/opencv/build
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/build# cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/src/app/opencv/opencv/ -D INSTALL_PYTHON_EXAMPLES=OFF -D INSTALL_C_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=/usr/src/app/opencv/opencv_contrib/modules -D PYTHON3_EXECUTABLE=/usr/bin/python3.5m -D PYTHON3_LIBRARY=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu/libpython3.5m.so -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON3_INCLUDE_DIR2=/usr/include/x86_64-linux-gnu/python3.4m -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.5/dist-packages/numpy/core/include/ -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.5/dist-packages/ ..
+-- Looking for ccache - not found
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found suitable version "1.2.8", minimum required is "1.2.3") 
+-- Could NOT find Jasper (missing:  JASPER_LIBRARIES JASPER_INCLUDE_DIR) 
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.8") 
+-- Looking for linux/videodev.h
+-- Looking for linux/videodev.h - not found
+-- Looking for linux/videodev2.h
+-- Looking for linux/videodev2.h - found
+-- Looking for sys/videoio.h
+-- Looking for sys/videoio.h - not found
+-- found Intel IPP (ICV version): 2019.0.0 [2019.0.0 Gold]
+-- at: /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+-- found Intel IPP Integration Wrappers sources: 2019.0.0
+-- at: /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+-- Could not find OpenBLAS lib. Turning OpenBLAS_FOUND off
+-- Could NOT find Atlas (missing:  Atlas_CLAPACK_INCLUDE_DIR) 
+-- A library with BLAS API found.
+-- A library with LAPACK API found.
+-- Could NOT find JNI (missing:  JAVA_AWT_LIBRARY JAVA_JVM_LIBRARY JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JAVA_AWT_INCLUDE_PATH) 
+-- VTK is not found. Please set -DVTK_DIR in CMake to VTK build directory, or to VTK install subdirectory with VTKConfig.cmake file
+-- OpenCV Python: during development append to PYTHONPATH: /usr/src/app/opencv/opencv/build/python_loader
+CMake Warning at cmake/OpenCVGenSetupVars.cmake:54 (message):
+  CONFIGURATION IS NOT SUPPORTED: validate setupvars script in install
+  directory
+Call Stack (most recent call first):
+  CMakeLists.txt:1085 (include)
+
+
+-- 
+-- General configuration for OpenCV 3.4.6-dev =====================================
+--   Version control:               3.4.6-164-gdef8fa2
+-- 
+--   Platform:
+--     Timestamp:                   2019-05-23T13:28:43Z
+--     Host:                        Linux 4.15.0-50-generic x86_64
+--     CMake:                       3.5.1
+--     CMake generator:             Unix Makefiles
+--     CMake build tool:            /usr/bin/make
+--     Configuration:               RELEASE
+-- 
+--   CPU/HW features:
+--     Baseline:                    SSE SSE2 SSE3
+--       requested:                 SSE3
+--     Dispatched code generation:  SSE4_1 SSE4_2 FP16 AVX AVX2 AVX512_SKX
+--       requested:                 SSE4_1 SSE4_2 AVX FP16 AVX2 AVX512_SKX
+--       SSE4_1 (14 files):         + SSSE3 SSE4_1
+--       SSE4_2 (2 files):          + SSSE3 SSE4_1 POPCNT SSE4_2
+--       FP16 (1 files):            + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 AVX
+--       AVX (6 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
+--       AVX2 (28 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
+--       AVX512_SKX (2 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_COMMON AVX512_SKX
+-- 
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++ Compiler:                /usr/bin/c++  (ver 5.4.0)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  /usr/bin/cc
+--     C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      -Wl,--gc-sections  
+--     Linker flags (Debug):        -Wl,--gc-sections  
+--     ccache:                      NO
+--     Precompiled headers:         NO
+--     Extra dependencies:          dl m pthread rt
+--     3rdparty dependencies:
+-- 
+--   OpenCV modules:
+--     To be built:                 calib3d core dnn features2d flann highgui imgcodecs imgproc ml objdetect photo python2 python3 shape stitching superres ts video videoio videostab
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev java js viz
+--     Applications:                tests perf_tests apps
+--     Documentation:               NO
+--     Non-free algorithms:         NO
+-- 
+--   GUI: 
+--     GTK+:                        YES (ver 3.18.9)
+--       GThread :                  YES (ver 2.48.2)
+--       GtkGlExt:                  NO
+--     VTK support:                 NO
+-- 
+--   Media I/O: 
+--     ZLib:                        /usr/lib/x86_64-linux-gnu/libz.so (ver 1.2.8)
+--     JPEG:                        /usr/lib/x86_64-linux-gnu/libjpeg.so (ver 80)
+--     WEBP:                        build (ver encoder: 0x020e)
+--     PNG:                         /usr/lib/x86_64-linux-gnu/libpng.so (ver 1.2.54)
+--     TIFF:                        /usr/lib/x86_64-linux-gnu/libtiff.so (ver 42 / 4.0.6)
+--     JPEG 2000:                   build (ver 1.900.1)
+--     OpenEXR:                     build (ver 1.7.1)
+--     HDR:                         YES
+--     SUNRASTER:                   YES
+--     PXM:                         YES
+-- 
+--   Video I/O:
+--     DC1394:                      YES (ver 2.2.4)
+--     FFMPEG:                      YES
+--       avcodec:                   YES (ver 56.60.100)
+--       avformat:                  YES (ver 56.40.101)
+--       avutil:                    YES (ver 54.31.100)
+--       swscale:                   YES (ver 3.1.101)
+--       avresample:                YES (ver 2.1.0)
+--     GStreamer:                   YES
+--       base:                      YES (ver 1.8.3)
+--       video:                     YES (ver 1.8.3)
+--       app:                       YES (ver 1.8.3)
+--       riff:                      YES (ver 1.8.3)
+--       pbutils:                   YES (ver 1.8.3)
+--     libv4l/libv4l2:              NO
+--     v4l/v4l2:                    linux/videodev2.h
+-- 
+--   Parallel framework:            pthreads
+-- 
+--   Trace:                         YES (with Intel ITT)
+-- 
+--   Other third-party libraries:
+--     Intel IPP:                   2019.0.0 Gold [2019.0.0]
+--            at:                   /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+--     Intel IPP IW:                sources (2019.0.0)
+--               at:                /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+--     Lapack:                      NO
+--     Eigen:                       NO
+--     Custom HAL:                  NO
+--     Protobuf:                    build (3.5.1)
+-- 
+--   OpenCL:                        YES (no extra features)
+--     Include path:                /usr/src/app/opencv/opencv/3rdparty/include/opencl/1.2
+--     Link libraries:              Dynamic load
+-- 
+--   Python 2:
+--     Interpreter:                 /usr/bin/python2.7 (ver 2.7.12)
+--     Libraries:                   /usr/lib/x86_64-linux-gnu/libpython2.7.so (ver 2.7.12)
+--     numpy:                       /usr/local/lib/python2.7/dist-packages/numpy/core/include (ver 1.16.3)
+--     install path:                lib/python2.7/dist-packages/cv2/python-2.7
+-- 
+--   Python 3:
+--     Interpreter:                 /usr/bin/python3.5m (ver 3.5.2)
+--     Libraries:                   /usr/lib/python3.5/config-3.5m-x86_64-linux-gnu/libpython3.5m.so -D (ver 3.5.2)
+--     numpy:                       /usr/local/lib/python3.5/dist-packages/numpy/core/include (ver 1.16.2)
+--     install path:                /usr/local/lib/python3.5/dist-packages//cv2/python-3.5
+-- 
+--   Python (for build):            /usr/bin/python2.7
+-- 
+--   Java:                          
+--     ant:                         NO
+--     JNI:                         NO
+--     Java wrappers:               NO
+--     Java tests:                  NO
+-- 
+--   Install to:                    /usr/src/app/opencv/opencv
+-- -----------------------------------------------------------------
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/src/app/opencv/opencv/build
+                                                    cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/src/app/opencv/opencv/ -D INSTALL_PYTHON_EXAMPLES=OFF -D INSTALL_C_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=/usr/src/app/opencv/opencv_contrib/modules -D PYTHON3_EXECUTABLE=/usr/bin/python3.5m -D PYTHON3_LIBRARY=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu/libpython3.5m.so -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON3_INCLUDE_DIR2=/usr/include/x86_64-linux-gnu/python3.4m -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.5/dist-packages/numpy/core/include/ -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.5/dist-packages/ ..
+root@d2ebdce709d9:/usr/src/app/opencv/opencv/build# cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/src/app/opencv/opencv/  -DOPENCV_EXTRA_MODULES_PATH=/usr/src/app/opencv/opencv_contrib/modules -D PYTHON3_EXECUTABLE=/usr/bin/python3.5m -D PYTHON3_LIBRARY=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu/libpython3.5m.so -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON3_INCLUDE_DIR2=/usr/include/x86_64-linux-gnu/python3.4m -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.5/dist-packages/numpy/core/include/ -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.5/dist-packages/ ..
+-- Looking for ccache - not found
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found suitable version "1.2.8", minimum required is "1.2.3") 
+-- Could NOT find Jasper (missing:  JASPER_LIBRARIES JASPER_INCLUDE_DIR) 
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.8") 
+-- Looking for linux/videodev.h
+-- Looking for linux/videodev.h - not found
+-- Looking for linux/videodev2.h
+-- Looking for linux/videodev2.h - found
+-- Looking for sys/videoio.h
+-- Looking for sys/videoio.h - not found
+-- found Intel IPP (ICV version): 2019.0.0 [2019.0.0 Gold]
+-- at: /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+-- found Intel IPP Integration Wrappers sources: 2019.0.0
+-- at: /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+-- Could not find OpenBLAS lib. Turning OpenBLAS_FOUND off
+-- Could NOT find Atlas (missing:  Atlas_CLAPACK_INCLUDE_DIR) 
+-- A library with BLAS API found.
+-- A library with LAPACK API found.
+-- Could NOT find JNI (missing:  JAVA_AWT_LIBRARY JAVA_JVM_LIBRARY JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JAVA_AWT_INCLUDE_PATH) 
+-- VTK is not found. Please set -DVTK_DIR in CMake to VTK build directory, or to VTK install subdirectory with VTKConfig.cmake file
+-- OpenCV Python: during development append to PYTHONPATH: /usr/src/app/opencv/opencv/build/python_loader
+-- Module opencv_ovis disabled because OGRE3D was not found
+-- Found HDF5: /usr/lib/x86_64-linux-gnu/hdf5/serial/lib/libhdf5.so;/usr/lib/x86_64-linux-gnu/libpthread.so;/usr/lib/x86_64-linux-gnu/libsz.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libdl.so;/usr/lib/x86_64-linux-gnu/libm.so (found version "1.8.16") 
+-- Caffe:   NO
+-- Protobuf:   NO
+-- Glog:   NO
+-- No preference for use of exported gflags CMake configuration set, and no hints for include/library directories provided. Defaulting to preferring an installed/exported gflags CMake configuration if available.
+-- Failed to find installed gflags CMake configuration, searching for gflags build directories exported with CMake.
+-- Failed to find gflags - Failed to find an installed/exported CMake configuration for gflags, will perform search for installed gflags components.
+-- Failed to find gflags - Could not find gflags include directory, set GFLAGS_INCLUDE_DIR to directory containing gflags/gflags.h
+-- Failed to find glog - Could not find glog include directory, set GLOG_INCLUDE_DIR to directory containing glog/logging.h
+-- Module opencv_sfm disabled because the following dependencies are not found: Eigen Glog/Gflags
+-- Checking for module 'freetype2'
+--   Found freetype2, version 18.1.12
+-- Checking for module 'harfbuzz'
+--   Found harfbuzz, version 1.0.1
+-- freetype2:   YES (ver 18.1.12)
+-- harfbuzz:    YES (ver 1.0.1)
+-- Checking for module 'tesseract'
+--   No package 'tesseract' found
+-- Tesseract:   NO
+-- xfeatures2d/boostdesc: Download: boostdesc_bgm.i
+-- xfeatures2d/boostdesc: Download: boostdesc_bgm_bi.i
+-- xfeatures2d/boostdesc: Download: boostdesc_bgm_hd.i
+-- xfeatures2d/boostdesc: Download: boostdesc_binboost_064.i
+-- xfeatures2d/boostdesc: Download: boostdesc_binboost_128.i
+-- xfeatures2d/boostdesc: Download: boostdesc_binboost_256.i
+-- xfeatures2d/boostdesc: Download: boostdesc_lbgm.i
+-- xfeatures2d/vgg: Download: vgg_generated_48.i
+-- xfeatures2d/vgg: Download: vgg_generated_64.i
+-- xfeatures2d/vgg: Download: vgg_generated_80.i
+-- xfeatures2d/vgg: Download: vgg_generated_120.i
+-- data: Download: face_landmark_model.dat
+CMake Warning at cmake/OpenCVGenSetupVars.cmake:54 (message):
+  CONFIGURATION IS NOT SUPPORTED: validate setupvars script in install
+  directory
+Call Stack (most recent call first):
+  CMakeLists.txt:1085 (include)
+
+
+-- 
+-- General configuration for OpenCV 3.4.6-dev =====================================
+--   Version control:               3.4.6-164-gdef8fa2
+-- 
+--   Extra modules:
+--     Location (extra):            /usr/src/app/opencv/opencv_contrib/modules
+--     Version control (extra):     3.4.6-12-g9005e9e
+-- 
+--   Platform:
+--     Timestamp:                   2019-05-23T13:28:43Z
+--     Host:                        Linux 4.15.0-50-generic x86_64
+--     CMake:                       3.5.1
+--     CMake generator:             Unix Makefiles
+--     CMake build tool:            /usr/bin/make
+--     Configuration:               RELEASE
+-- 
+--   CPU/HW features:
+--     Baseline:                    SSE SSE2 SSE3
+--       requested:                 SSE3
+--     Dispatched code generation:  SSE4_1 SSE4_2 FP16 AVX AVX2 AVX512_SKX
+--       requested:                 SSE4_1 SSE4_2 AVX FP16 AVX2 AVX512_SKX
+--       SSE4_1 (14 files):         + SSSE3 SSE4_1
+--       SSE4_2 (2 files):          + SSSE3 SSE4_1 POPCNT SSE4_2
+--       FP16 (1 files):            + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 AVX
+--       AVX (6 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
+--       AVX2 (28 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
+--       AVX512_SKX (2 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_COMMON AVX512_SKX
+-- 
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++ Compiler:                /usr/bin/c++  (ver 5.4.0)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  /usr/bin/cc
+--     C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      -Wl,--gc-sections  
+--     Linker flags (Debug):        -Wl,--gc-sections  
+--     ccache:                      NO
+--     Precompiled headers:         NO
+--     Extra dependencies:          dl m pthread rt
+--     3rdparty dependencies:
+-- 
+--   OpenCV modules:
+--     To be built:                 aruco bgsegm bioinspired calib3d ccalib core datasets dnn dnn_objdetect dpm face features2d flann freetype fuzzy hdf hfs highgui img_hash imgcodecs imgproc line_descriptor ml objdetect optflow phase_unwrapping photo plot python2 python3 reg rgbd saliency shape stereo stitching structured_light superres surface_matching text tracking ts video videoio videostab xfeatures2d ximgproc xobjdetect xphoto
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 cnn_3dobj cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv java js matlab ovis sfm viz
+--     Applications:                tests perf_tests apps
+--     Documentation:               NO
+--     Non-free algorithms:         NO
+-- 
+--   GUI: 
+--     GTK+:                        YES (ver 3.18.9)
+--       GThread :                  YES (ver 2.48.2)
+--       GtkGlExt:                  NO
+--     VTK support:                 NO
+-- 
+--   Media I/O: 
+--     ZLib:                        /usr/lib/x86_64-linux-gnu/libz.so (ver 1.2.8)
+--     JPEG:                        /usr/lib/x86_64-linux-gnu/libjpeg.so (ver 80)
+--     WEBP:                        build (ver encoder: 0x020e)
+--     PNG:                         /usr/lib/x86_64-linux-gnu/libpng.so (ver 1.2.54)
+--     TIFF:                        /usr/lib/x86_64-linux-gnu/libtiff.so (ver 42 / 4.0.6)
+--     JPEG 2000:                   build (ver 1.900.1)
+--     OpenEXR:                     build (ver 1.7.1)
+--     HDR:                         YES
+--     SUNRASTER:                   YES
+--     PXM:                         YES
+-- 
+--   Video I/O:
+--     DC1394:                      YES (ver 2.2.4)
+--     FFMPEG:                      YES
+--       avcodec:                   YES (ver 56.60.100)
+--       avformat:                  YES (ver 56.40.101)
+--       avutil:                    YES (ver 54.31.100)
+--       swscale:                   YES (ver 3.1.101)
+--       avresample:                YES (ver 2.1.0)
+--     GStreamer:                   YES
+--       base:                      YES (ver 1.8.3)
+--       video:                     YES (ver 1.8.3)
+--       app:                       YES (ver 1.8.3)
+--       riff:                      YES (ver 1.8.3)
+--       pbutils:                   YES (ver 1.8.3)
+--     libv4l/libv4l2:              NO
+--     v4l/v4l2:                    linux/videodev2.h
+-- 
+--   Parallel framework:            pthreads
+-- 
+--   Trace:                         YES (with Intel ITT)
+-- 
+--   Other third-party libraries:
+--     Intel IPP:                   2019.0.0 Gold [2019.0.0]
+--            at:                   /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+--     Intel IPP IW:                sources (2019.0.0)
+--               at:                /usr/src/app/opencv/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+--     Lapack:                      NO
+--     Eigen:                       NO
+--     Custom HAL:                  NO
+--     Protobuf:                    build (3.5.1)
+-- 
+--   OpenCL:                        YES (no extra features)
+--     Include path:                /usr/src/app/opencv/opencv/3rdparty/include/opencl/1.2
+--     Link libraries:              Dynamic load
+-- 
+--   Python 2:
+--     Interpreter:                 /usr/bin/python2.7 (ver 2.7.12)
+--     Libraries:                   /usr/lib/x86_64-linux-gnu/libpython2.7.so (ver 2.7.12)
+--     numpy:                       /usr/local/lib/python2.7/dist-packages/numpy/core/include (ver 1.16.3)
+--     install path:                lib/python2.7/dist-packages/cv2/python-2.7
+-- 
+--   Python 3:
+--     Interpreter:                 /usr/bin/python3.5m (ver 3.5.2)
+--     Libraries:                   /usr/lib/python3.5/config-3.5m-x86_64-linux-gnu/libpython3.5m.so -D (ver 3.5.2)
+--     numpy:                       /usr/local/lib/python3.5/dist-packages/numpy/core/include (ver 1.16.2)
+--     install path:                /usr/local/lib/python3.5/dist-packages//cv2/python-3.5
+-- 
+--   Python (for build):            /usr/bin/python2.7
+-- 
+--   Java:                          
+--     ant:                         NO
+--     JNI:                         NO
+--     Java wrappers:               NO
+--     Java tests:                  NO
+-- 
+--   Install to:                    /usr/src/app/opencv/opencv
+-- -----------------------------------------------------------------
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/src/app/opencv/opencv/buil

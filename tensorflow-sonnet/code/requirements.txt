@@ -1,6 +1,6 @@
 #für Sonnet install 
-tensorflow-probability-gpu
+#tensorflow-probability-gpu
 collections-extended
 imageio
 numpy
-dm-sonnet
+dm-sonnet==1.23
