@@ -22,19 +22,19 @@ Anschließend kann man sich das Reposetrie clonen.
 
 ### Configuration
 Im Docker-compose.yaml werden die Startbedingungen festgelegt.
-* welches Iamge als Grundlage dieht
+* welches Image als Grundlage benutzt wurde
 * start Command
 * Variablen die Übernommen werden
-* mounten von Ordnern
-* übergabe von Geräten Bsp. Webcam
-* weite Einstellungen
+* Hinzufügen von Ordnern
+* Übergabe von Geräten bsp. Webcam
+* weitere Einstellungen
 
 Im Dockerfile werden dann die Befehle eingetragen welche beim Builden umgesetzt werden. 
 * Auswahl des Images
-* Auswahl der installationen 
+* Auswahl der Installationen 
 * Clonen von Github repos
 * Auswahl des Codes welcher von der host maschine Koppiert werden sollen
-* unzippen und befehler die während dem bauen installiert werden sollen
+* Unzippen und befehler die während dem bauen installiert werden sollen
 
 Images können unter [Dockerhub](https://hub.docker.com/) ausgesucht werden. Diese werden dann automatisch zu beginn heruntergeladen und dienen als Basis.
 
