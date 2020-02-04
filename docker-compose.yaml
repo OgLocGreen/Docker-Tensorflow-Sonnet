@@ -43,3 +43,4 @@ services:
       - /tmp/.X11-unix/:/tmp/.X11-unix/
     devices:
       - /dev/video0:/dev/video0                   # Übergeben von Webcam
+      - /dev/video1:/dev/video1
